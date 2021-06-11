@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import './Weather.css';
 import axios from "axios";
+import FormattedDate from "./FormattedDate"
 
 export default function Weather(props){
     const [weatherData, setWeatherData] = useState({ ready: false });
@@ -9,12 +10,12 @@ export default function Weather(props){
         setWeatherData({
             ready: true,
             coordinates: response.data.coord,
-            temperature: response.data.main.temp,
+            temperature: Math.round(response.data.main.temp),
             humidity: response.data.main.humidity,
-            date: new Date(response.data.dt * 1000),
+            date: new Date (response.data.dt * 1000),
             description: response.data.weather[0].description,
             icon: response.data.weather[0].icon,
-            wind: response.data.wind.speed,
+            wind: Math.round(response.data.wind.speed),
             city: response.data.name,
         })
         console.log(weatherData)
@@ -31,7 +32,7 @@ export default function Weather(props){
                             className="src emoji"
                             id="icon"
                         />
-                        <span className="temperature mx-2">42</span>
+                        <span className="temperature mx-2">{weatherData.temperature}</span>
                         <span className="units">
                             {" "}
                             <a href="/" className="active">°F</a>{" "}| <a href="/" > °C</a>
@@ -39,20 +40,20 @@ export default function Weather(props){
                         <br />
                         <ul className="weather-stats ml-4">
                             <li>
-                            Humidity: <span>60</span>%
+                            Humidity: <span>{weatherData.humidity}</span>%
                             </li>
                             <li>
-                            Wind: <span>12</span>mph
+                            Wind: <span>{weatherData.wind}</span>mph
                             </li>
-                            <li className="current-weather-descrip">Partly Cloudy</li>
+                            <li className="current-weather-descrip">{weatherData.description}</li>
                         </ul>
                     </div>
                     <div className="col-5">
                         <ul>
-                            <li className="city">Evanston, IL</li>
+                            <li className="city">{weatherData.city}</li>
                             <li className="day-time">Last updated at:</li>
                             <li className="day-time">
-                                <span id="date">Monday 10:00 AM</span>
+                                <span id="date"><FormattedDate date={weatherData.date}></FormattedDate></span>
                             </li>
                         </ul>
                     </div>
@@ -61,7 +62,7 @@ export default function Weather(props){
         )
     } else {
         const apiKey = "0938aaea4eb798390f9b1df3fa43323f";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&appid=units=imperial`;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&appid=&units=imperial`;
         axios.get(apiUrl).then(handleResponse);
         return (
             "Loading..."
