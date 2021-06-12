@@ -68,6 +68,7 @@ export default function Weather(props){
                                 <button
                                     className="btn btn-primary mx-1"
                                     type="button"
+                                    onClick={handleSubmit}
                                 >
                                     Search
                                 </button>
