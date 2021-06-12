@@ -1,0 +1,12 @@
+.city {
+    font-size: 22pt;
+    padding-top:10px;
+  }
+  
+.current-weather-descrip {
+    font-size: 10pt;
+  }
+  
+.current-weather-descrip::first-letter {
+    text-transform: capitalize;
+  }

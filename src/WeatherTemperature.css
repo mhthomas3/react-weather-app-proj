@@ -1,0 +1,30 @@
+a {
+    text-decoration:none;
+}
+
+.units {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 24px;
+    padding-left:0px;
+    vertical-align: top;
+    font-size: 16px;
+    margin-top: 12px;
+}
+
+.units .active {
+    color: rgb(33, 33, 33);
+    cursor: default;
+    text-decoration: none;
+  }
+  
+.units .active:hover {
+    text-decoration: none;
+    color: rgb(33, 33, 33);
+  }
+
+.temperature{
+    vertical-align: top;
+    font-size: 48px;
+    display: inline;
+}

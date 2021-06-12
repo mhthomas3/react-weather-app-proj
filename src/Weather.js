@@ -42,7 +42,7 @@ export default function Weather(props){
                 <div className="SearchForm">
                     <form id="search-form" className="mb-3 mx-3" onSubmit={handleSubmit}>
                         <div className="row">
-                            <div className="input-group my-3">
+                            <div className="input-group mt-3">
                                 <input
                                     type="text"
                                     placeholder="Type a city "
