@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import './Weather.css';
 import axios from "axios";
-import FormattedDate from "./FormattedDate"
+import WeatherInfo from "./WeatherInfo";
 
 export default function Weather(props){
     const [weatherData, setWeatherData] = useState({ ready: false });
+    const [city, setCity] = useState(props.defaultCity);
 
     function handleResponse(response){
         setWeatherData({
@@ -17,53 +18,60 @@ export default function Weather(props){
             icon: response.data.weather[0].icon,
             wind: Math.round(response.data.wind.speed),
             city: response.data.name,
-        })
-        console.log(weatherData)
+        });
+    };
+
+    function handleSubmit(event){
+        event.preventDefault();
+        search();
+    };
+    
+    function handleCityChange(event){
+        setCity(event.target.value)
+    };
+
+    function search() {
+        const apiKey = "0938aaea4eb798390f9b1df3fa43323f";
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&appid=&units=imperial`;
+        axios.get(apiUrl).then(handleResponse);
     }
 
     if (weatherData.ready) {
         return (
-            <div className="Weather container">           
-                <div className="row">
-                    <div className="col-7 float-start">
-                        <img
-                            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-                            alt="partly cloudy"
-                            className="src emoji"
-                            id="icon"
-                        />
-                        <span className="temperature mx-2">{weatherData.temperature}</span>
-                        <span className="units">
-                            {" "}
-                            <a href="/" className="active">°F</a>{" "}| <a href="/" > °C</a>
-                        </span>
-                        <br />
-                        <ul className="weather-stats ml-4">
-                            <li>
-                            Humidity: <span>{weatherData.humidity}</span>%
-                            </li>
-                            <li>
-                            Wind: <span>{weatherData.wind}</span>mph
-                            </li>
-                            <li className="current-weather-descrip">{weatherData.description}</li>
-                        </ul>
-                    </div>
-                    <div className="col-5">
-                        <ul>
-                            <li className="city">{weatherData.city}</li>
-                            <li className="day-time">Last updated at:</li>
-                            <li className="day-time">
-                                <span id="date"><FormattedDate date={weatherData.date}></FormattedDate></span>
-                            </li>
-                        </ul>
-                    </div>
+            <div className= "Weather">
+                <div className="SearchForm">
+                    <form id="search-form" className="mb-3 mx-3" onSubmit={handleSubmit}>
+                        <div className="row">
+                            <div className="input-group my-3">
+                                <input
+                                    type="text"
+                                    placeholder="Type a city "
+                                    className="form-control"
+                                    id="city-input"
+                                    aria-describedby="button-addon2"
+                                    onChange={handleCityChange}
+                                />
+                                <button
+                                    className="btn btn-primary mx-1"
+                                    type="button"
+                                >
+                                    Search
+                                </button>
+                                <button
+                                    className="btn btn-primary"
+                                    type="button"
+                                >
+                                    📍
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+                <WeatherInfo data={weatherData}/>
             </div>
         )
     } else {
-        const apiKey = "0938aaea4eb798390f9b1df3fa43323f";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&appid=&units=imperial`;
-        axios.get(apiUrl).then(handleResponse);
+        search()
         return (
             "Loading..."
         )
