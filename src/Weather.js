@@ -30,6 +30,20 @@ export default function Weather(props){
         setCity(event.target.value)
     };
 
+    function getCurrentPosition(event){
+        event.preventDefault();
+        navigator.geolocation.getCurrentPosition(searchCoordinates);
+    }
+
+    function searchCoordinates(position){
+        let apiKey = "0938aaea4eb798390f9b1df3fa43323f";
+        let units = "imperial";
+        let lon = position.coords.longitude;
+        let lat = position.coords.latitude;
+        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+        axios.get(apiUrl).then(handleResponse);
+    }
+
     function search() {
         const apiKey = "0938aaea4eb798390f9b1df3fa43323f";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&appid=&units=imperial`;
@@ -60,6 +74,7 @@ export default function Weather(props){
                                 <button
                                     className="btn btn-primary"
                                     type="button"
+                                    onClick={getCurrentPosition}
                                 >
                                     📍
                                 </button>
