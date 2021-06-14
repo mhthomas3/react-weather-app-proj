@@ -24,6 +24,6 @@ export default function WeatherIcon(props){
     }
     
     return(
-        <img src={codeMapping[props.icon]} alt={props.alt} className="weathericon" width={50}/>
+        <img src={codeMapping[props.icon]} alt={props.alt} className="weathericon" width={props.width}/>
     )
 }
