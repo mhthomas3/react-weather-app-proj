@@ -5,7 +5,6 @@ import WeatherTemperature from './WeatherTemperature.js';
 import './WeatherInfo.css'
 
 export default function WeatherInfo(props){
-    console.log(props.data.icon)
     return (
         <div className="WeatherInfo container">          
                 <div className="row">
@@ -26,7 +25,6 @@ export default function WeatherInfo(props){
                     <div className="col-5">
                         <ul>
                             <li className="city">{props.data.city}</li>
-                            <li className="day-time">Last updated at:</li>
                             <li className="day-time">
                                 <span id="date"><FormattedDate date={props.data.date} /></span>
                             </li>
