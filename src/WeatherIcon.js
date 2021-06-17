@@ -22,8 +22,29 @@ export default function WeatherIcon(props){
         "50d": "/mistD.svg",
         "50n": "/mistN.svg",
     }
+
+    const codeAltMapping ={
+        "01d": "Clear Sky - Day",
+        "01n": "Clear Sky - Night",
+        "02d": "Few Clouds - Day",
+        "02n": "Few Clouds - Night",
+        "03d": "Scattered Clouds - Day",
+        "03n": "Scattered Clouds - Day",
+        "04d": "Broken Clouds - Day",
+        "04n": "Broken Clouds - Night",
+        "09d": "Rain Shower - Day",
+        "09n": "Rain Shower - Night",
+        "10d": "Rain - Day",
+        "10n": "Rain - Night",
+        "11d": "Thunderstorm - Day",
+        "11n": "Thunderstorm - Night",
+        "13d": "Snow - Day",
+        "13n": "Snow - Night",
+        "50d": "Mist - Day",
+        "50n": "Mist - Night",
+    }
     
     return(
-        <img src={codeMapping[props.icon]} alt={props.alt} className="weathericon" width={props.width}/>
+        <img src={codeMapping[props.icon]} alt={codeAltMapping[props.alt]} className="weathericon" width={props.width}/>
     )
 }
