@@ -14,7 +14,7 @@
 </style>
 <g>
 	<rect y="1.8" class="st0" width="247.2" height="49.6"/>
-	<text style="font-family: 'Shrikhand';" transform="matrix(1 0 0 1 1.831055e-04 40.1059)" class="st1 st2 st3">Weather</text>
+	<text transform="matrix(1 0 0 1 1.831055e-04 40.1059)" class="st1 st2 st3">Weather</text>
 	<g>
 		<rect x="4.5" y="6.2" class="st0" width="247.2" height="49.6"/>
 		<text transform="matrix(1 0 0 1 4.5002 44.6059)" class="st4 st2 st3">Weather</text>
