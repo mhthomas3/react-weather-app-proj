@@ -3,7 +3,6 @@ import './Weather.css';
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import WeatherForecast from "./WeatherForecast";
-import Loader from "react-loader-spinner";
 
 export default function Weather(props){
     const [weatherData, setWeatherData] = useState({ ready: false });
