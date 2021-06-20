@@ -2,3 +2,7 @@ ul{
     padding:0px;
     list-style:none;
   }
+
+  .form, .btn{
+    border: .25px solid;
+  }

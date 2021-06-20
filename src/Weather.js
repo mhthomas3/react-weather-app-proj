@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import './Weather.css';
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
-import WeatherForecast from "./WeatherForecast"
+import WeatherForecast from "./WeatherForecast";
+import Loader from "react-loader-spinner";
 
 export default function Weather(props){
     const [weatherData, setWeatherData] = useState({ ready: false });
     const [city, setCity] = useState(props.defaultCity);
+
+    useEffect(()=>{
+        setCity(props.defaultCity);
+        setWeatherData({ ready: false })
+    }, [props.defaultCity])
 
     function handleResponse(response){
         setWeatherData({
@@ -53,45 +59,47 @@ export default function Weather(props){
 
     if (weatherData.ready) {
         return (
-            <div className= "Weather">
-                <div className="SearchForm">
-                    <form id="search-form" className="mb-3 mx-3" onSubmit={handleSubmit}>
-                        <div className="row">
-                            <div className="input-group mt-3">
-                                <input
-                                    type="text"
-                                    placeholder="Type a city "
-                                    className="form-control"
-                                    id="city-input"
-                                    aria-describedby="button-addon2"
-                                    onChange={handleCityChange}
-                                />
-                                <button
-                                    className="btn btn-primary mx-1"
-                                    type="button"
-                                    onClick={handleSubmit}
-                                >
-                                    Search
-                                </button>
-                                <button
-                                    className="btn btn-primary"
-                                    type="button"
-                                    onClick={getCurrentPosition}
-                                >
-                                    📍
-                                </button>
+            <div className="WeatherAppWrapper">
+                <div className= "Weather">
+                    <div className="SearchForm">
+                        <form id="search-form" className="mb-3 mx-3" onSubmit={handleSubmit}>
+                            <div className="row">
+                                <div className="input-group mt-3">
+                                    <input
+                                        type="text"
+                                        placeholder="Search for a city"
+                                        className="form-control form"
+                                        id="city-input"
+                                        aria-describedby="button-addon2"
+                                        onChange={handleCityChange}
+                                    />
+                                    <button
+                                        className="btn mx-1"
+                                        type="button"
+                                        onClick={handleSubmit}
+                                    >
+                                        Search
+                                    </button>
+                                    <button
+                                        className="btn"
+                                        type="button"
+                                        onClick={getCurrentPosition}
+                                    >
+                                        📍
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
+                    <WeatherInfo data={weatherData}/>
+                    <WeatherForecast coordinates = {weatherData.coordinates}/>
                 </div>
-                <WeatherInfo data={weatherData}/>
-                <WeatherForecast coordinates = {weatherData.coordinates}/>
             </div>
         )
     } else {
         search()
         return (
-            "Loading..."
+            ""
         )
     }
 }

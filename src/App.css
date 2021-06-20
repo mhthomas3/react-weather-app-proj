@@ -1,6 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
 div.WeatherAppContainer {
-  border:2px solid;
-  border-radius:8px;
   max-width:500px;
-  margin:30px auto;
+  border: .5px solid;
+  border-radius: 8px;
+  background-color:rgba(255, 255, 255, 0.75);
+  margin-top:5px;
+  font-family:'Poppins', sans-serif;
 }
+
+div.AppWrapper{
+  max-width:900px;
+  margin:30px auto;
+  padding:30px;
+  border: 1px solid;
+  border-radius: 8px;
+}
+
+
+.img{
+  margin:0 auto;
+}
+
+.colorDial{
+  margin:10px;
+  margin-top:20px;
+}
+
+.cityButton{
+  margin:10px;
+  margin-top:20px;
+  margin-bottom:0px;
+}
+
