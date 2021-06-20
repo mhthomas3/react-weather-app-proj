@@ -3,10 +3,10 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 251.7 47.2" style="enable-background:new 0 0 251.7 47.2;" xml:space="preserve">
 <style type="text/css">
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&family=Shrikhand&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Shrikhand');
 	.st0{fill:none;}
 	.st1{fill:#F8F5F1;}
-	.st2{font-family:'Shrikhand';}
+	.st2{font-family:'Shrikhand', cursive;}
 	.st3{font-size:52px;}
 	.st4{fill:#389393;}
 	.st5{fill:#FA7F72;}
@@ -14,7 +14,7 @@
 </style>
 <g>
 	<rect y="1.8" class="st0" width="247.2" height="49.6"/>
-	<text transform="matrix(1 0 0 1 1.831055e-04 40.1059)" class="st1 st2 st3">Weather</text>
+	<text style="font-family: 'Shrikhand';" transform="matrix(1 0 0 1 1.831055e-04 40.1059)" class="st1 st2 st3">Weather</text>
 	<g>
 		<rect x="4.5" y="6.2" class="st0" width="247.2" height="49.6"/>
 		<text transform="matrix(1 0 0 1 4.5002 44.6059)" class="st4 st2 st3">Weather</text>
