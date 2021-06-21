@@ -10,6 +10,10 @@
 	.st4{fill:#389393;}
 	.st5{fill:#FA7F72;}
 	.st6{fill:#F5A25D;}
+
+	text {
+		font-family: 'Shrikhand', cursive;
+	}
 </style>
 <g>
 	<rect y="1.8" class="st0" width="247.2" height="49.6"/>
