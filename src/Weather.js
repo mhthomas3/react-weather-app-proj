@@ -42,7 +42,7 @@ export default function Weather(props){
     }
 
     function searchCoordinates(position){
-        let apiKey = "0938aaea4eb798390f9b1df3fa43323f";
+        let apiKey = "8241f45cf931c43fccdbeeaa5f496f97";
         let units = "imperial";
         let lon = position.coords.longitude;
         let lat = position.coords.latitude;
@@ -51,7 +51,7 @@ export default function Weather(props){
     }
 
     function search() {
-        const apiKey = "0938aaea4eb798390f9b1df3fa43323f";
+        const apiKey = "8241f45cf931c43fccdbeeaa5f496f97";
         let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&appid=&units=imperial`;
         axios.get(apiUrl).then(handleResponse);
     }
