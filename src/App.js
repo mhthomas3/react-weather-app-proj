@@ -91,6 +91,7 @@ export default function App() {
           </div>
         </div>
       </div>
+      <p className="openSourceLink">Coded by Morgan Thomas. <a href="https://github.com/mhthomas3/react-weather-app-proj" alt="Link to open source code" target="_blank" rel="noreferrer">Open sourced</a> on GitHub.</p>
     </div>
   );
 }

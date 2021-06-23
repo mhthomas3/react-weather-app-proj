@@ -14,6 +14,7 @@ div.WeatherAppContainer {
 div.AppWrapper{
   max-width:900px;
   margin:30px auto;
+  margin-bottom:5px;
   padding:30px;
   border: 1px solid;
   border-radius: 8px;
@@ -35,3 +36,9 @@ div.AppWrapper{
   margin-bottom:0px;
 }
 
+
+.openSourceLink{
+  text-align:center;
+  font-family:'Poppins', sans-serif;
+  font-size:8pt;
+}
